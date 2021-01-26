@@ -2,10 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { UserComponent } from './components/user/user.component';
-import {HttpClient, HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import { UsersComponent } from './components/users/users.component';
-import {RouterModule} from '@angular/router';
+import {Route, RouterModule, Routes} from '@angular/router';
+import {UserResolveService} from './services/resolve/user-resolve.service';
+
+const routes: Routes = [{
+  path: '' , component: UsersComponent, resolve: {usersData: UserResolveService}
+}];
 
 @NgModule({
   declarations: [
@@ -15,7 +19,7 @@ import {RouterModule} from '@angular/router';
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
