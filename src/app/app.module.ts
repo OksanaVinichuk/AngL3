@@ -6,6 +6,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { UsersComponent } from './components/users/users.component';
 import {Route, RouterModule, Routes} from '@angular/router';
 import {UserResolveService} from './services/resolve/user-resolve.service';
+import { UserComponent } from './components/user/user.component';
 
 const routes: Routes = [{
   path: '' , component: UsersComponent, resolve: {usersData: UserResolveService}
@@ -15,6 +16,7 @@ const routes: Routes = [{
   declarations: [
     AppComponent,
     UsersComponent,
+    UserComponent,
     ],
   imports: [
     BrowserModule,
