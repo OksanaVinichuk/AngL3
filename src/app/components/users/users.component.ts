@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../../models/User';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -8,7 +9,9 @@ import {User} from '../../models/User';
 })
 export class UsersComponent implements OnInit {
  users: User[];
-   constructor() { }
+   constructor(private activatedRoute: ActivatedRoute){
+     this.activatedRoute.params.subscribe(value => console.log(value));
+   }
 
   ngOnInit(): void {
   }
